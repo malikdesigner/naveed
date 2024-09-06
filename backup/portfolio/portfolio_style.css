@@ -1,0 +1,144 @@
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.portfolio-slider {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    background-color: #ffffff;
+    overflow: hidden; /* Hide overflow for a clean sliding effect */
+}
+
+.portfolio-slider .portfolio-contents-wrapper {
+    width: 100%;
+    min-height: inherit;
+    margin: 30px auto;
+    text-align: center;
+    position: relative; /* Needed for positioning indicators */
+}
+
+.portfolio-header h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.portfolioRow {
+    display: flex;
+    width: 300%; /* Adjust based on the number of items you want visible at a time */
+    transition: transform 0.5s ease-in-out; /* Smooth sliding transition */
+}
+
+.portfolioItem {
+    flex: 1 1 33.333%; /* Adjust based on how many items you want visible at a time */
+    max-width: 33.333%; /* Ensure proper width based on number of items visible */
+    box-sizing: border-box; /* Include padding in width calculation */
+    padding: 0 10px; /* Add space between items */
+    position: relative; /* Needed for positioning overlay */
+}
+
+.image-container {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 300px; /* Fixed height for all images */
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%; /* Ensure images cover the container */
+    object-fit: cover; /* Crop image to cover the container without distortion */
+    object-position: center; /* Center the image within its container */
+    display: block; /* Remove bottom margin */
+    border-radius: 10px; /* Optional: rounded corners */
+    transition: transform 0.5s ease; /* Smooth zoom transition */
+}
+
+.image-container:hover img {
+    transform: scale(1.1); /* Scale image to zoom in */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.github-link {
+    color: #fff; /* White color for the icon */
+    font-size: 40px; /* Size of the GitHub icon */
+    text-decoration: none; /* Remove underline */
+}
+
+.github-link i {
+    transition: color 0.3s ease;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+.indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.indicators .dot {
+    width: 15px;
+    height: 15px;
+    margin: 0 3px;
+    border: 3px solid #aaa;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.5s ease;
+}
+
+.indicators .active {
+    background-color: #0e0f0f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .portfolioRow {
+        width: 200%; /* Adjust based on visible items */
+    }
+    .portfolioItem {
+        flex: 1 1 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolioRow {
+        width: 100%; /* One item per view */
+    }
+    .portfolioItem {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+.section-subheading{
+    padding: 5%;
+    font-family: "Frank Ruhl Libre", serif;
+    font-size: 5.4rem;
+    font-weight: 400;
+    color: #000000;
+
+}
